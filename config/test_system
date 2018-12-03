@@ -1,0 +1,27 @@
+[center]
+name = Sun
+mass = 4e33 kg
+
+[object]
+name = Mercury
+sma = 20000000 km
+ecc = 0.06
+inc = 23 deg
+lan = 14 deg
+ape = 88 deg
+tae = 47.2888 deg
+epoch = 0
+mass = 2.6e24 kg
+rad = 3234 km
+
+[object]
+name = Venus
+sma = 20000000 km
+ecc = 0.06
+inc = 23 deg
+lan = 14 deg
+ape = 88 deg
+tae = 47.2888 deg
+epoch = 0
+mass = 2.6e24 kg
+rad = 3234 km
