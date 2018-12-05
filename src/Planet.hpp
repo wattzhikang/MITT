@@ -1,3 +1,6 @@
+#ifndef PLANET_H
+#define PLANET_H
+
 #include <string>
 
 class Planet {
@@ -26,3 +29,5 @@ class Planet {
 
     std::string to_string();
 };
+
+#endif

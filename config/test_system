@@ -1,4 +1,6 @@
-[center]
+systemName = Solar System
+
+[centralObject]
 name = Sun
 mass = 4e33 kg
 
@@ -25,3 +27,4 @@ tae = 47.2888 deg
 epoch = 0
 mass = 2.6e24 kg
 rad = 3234 km
+

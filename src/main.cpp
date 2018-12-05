@@ -1,10 +1,13 @@
 #include <iostream>
 
-#include "Planet.hpp"
 #include "FileReader.hpp"
+#include "ConfigFile.hpp"
 
 int main() {
-	std::cout << "Hello, world!" << std::endl;
+	std::string configContent = file_to_string(
+			std::string("config/test_system"));
 
-	std::cout << file_to_string(std::string("config/test_system"));
+	ConfigFile systemConfig(configContent);
+
+	std::cout << systemConfig.to_string() << std::endl;
 }

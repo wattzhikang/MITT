@@ -2,14 +2,12 @@ src = src
 bin = bin
 gen = bin/generated_files
 
-mitt : $(gen)/main.o $(gen)/Planet.o $(gen)/FileReader.o
-	g++ $(gen)/main.o $(gen)/Planet.o $(gen)/FileReader.o -g -o $(bin)/mitt
+objs = $(gen)/main.o $(gen)/Planet.o $(gen)/FileReader.o $(gen)/ConfigFile.o
 
-$(gen)/main.o : $(src)/main.cpp $(src)/Planet.hpp
-	g++ $(src)/main.cpp -c -g -o $(gen)/main.o
+$(bin)/mitt : $(objs)
+	@ echo "Linking MITT"
+	@ g++ -g $^ -o $@
 
-$(gen)/Planet.o : $(src)/Planet.cpp $(src)/Planet.hpp
-	g++ $(src)/Planet.cpp -c -g -o $(gen)/Planet.o
-
-$(gen)/FileReader.o : $(src)/FileReader.cpp $(src)/FileReader.hpp
-	g++ $(src)/FileReader.cpp -c -g -o $(gen)/FileReader.o
+$(gen)/%.o : $(src)/%.cpp
+	@ echo Compiling $<
+	@ g++ -g -c $< -o $@
