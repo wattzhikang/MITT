@@ -43,20 +43,94 @@ std::string ConfigFile::readUntilNextSection(std::string& content,
 	return sec;
 }
 
-ConfigFile::ConfigFile(std::string content) {
-	/*
-	 * This constructor will accept the contents of a config file. It will
-	 * parse the entire file, storing all properties in the properties map,
-	 * where they will remain as uninterpreted strings. Every character
-	 * between the '=' and the '\n' will go as the value of the property.
-	 * Specific methods will interpret them. For example, a value such as
-	 * " 21600 km" should be interpreted by getDistance().
-	 *
-	 * Sections will be stored as ConfigFiles, stored in the map structure
-	 * in a vector. For example, all 'planet' or 'maneuver' sections will
-	 * be hashed under "planet" and "maneuver" in the map, respectively.
-	 */
+void ConfigFile::setUnits(ConfigFile unitFile) {
+	ConfigFile* lengths = unitFile.getSections("length")[0];
+	for (auto property : lengths->properties) {
+		units[ut_distance][property.first] = lengths->getDouble(property.first);
+	}
 
+	lengths = unitFile.getSections("angle")[0];
+	for (auto property : lengths->properties) {
+		units[ut_angle][property.first] = lengths->getDouble(property.first);
+	}
+
+	for (auto sectionVector : sections) {
+		for (auto section : sectionVector.second) {
+			section->units = units;
+		}
+	}
+}
+
+void ConfigFile::setUnits(std::map<unitType, std::map<std::string, double>> inputUnits) {
+	units = inputUnits;
+}
+
+ConfigFile::valUnit ConfigFile::getValueUnit(const std::string& key) {
+	if (properties.find(key) == properties.end()) {
+		//"Error: property [key] not found"
+	}
+
+	valUnit info;
+	std::stringstream ss(properties[key]);
+
+	ss >> info.value >> info.unit;
+
+	return info;
+}
+
+double ConfigFile::getDistance(const std::string& key) {
+	valUnit info = getValueUnit(key);
+
+	if (info.unit.length()) {
+		if (units[ut_distance].find(info.unit) == units[ut_distance].end()) {
+			//Error: unit not found
+		} else {
+			info.value *= units[ut_distance][info.unit];
+		}
+	}
+
+	return info.value;
+}
+
+double ConfigFile::getAngle(const std::string& key) {
+	valUnit info = getValueUnit(key);
+
+	if (info.unit.length()) {
+		if (units[ut_angle].find(info.unit) == units[ut_angle].end()) {
+			//Error: unknown unit
+		} else {
+			info.value *= units[ut_angle][info.unit];
+		}
+	}
+
+	return info.value;
+}
+
+double ConfigFile::getDouble(const std::string& key) {
+	valUnit info = getValueUnit(key);
+
+	return info.value;
+}
+
+std::string ConfigFile::getToken(const std::string& key) {
+	if (properties.find(key) == properties.end()) {
+		//throw exception or whatever you do in C++
+	}
+
+	std::stringstream ss(properties[key]);
+
+	std::string token;
+
+	ss >> token;
+
+	return token;
+}
+
+std::vector<ConfigFile*>& ConfigFile::getSections(const std::string& content) {
+	return sections[content];
+}
+
+ConfigFile::ConfigFile(std::string content) {
 	std::string::iterator itr = content.begin();
 	std::string::iterator end = content.end();
 
@@ -80,6 +154,7 @@ ConfigFile::ConfigFile(std::string content) {
 	std::string type;
 	std::string section;
 	std::vector<ConfigFile*> emptyTypes;
+	ConfigFile* sectionHolder;
 
 	while (*itr == '[' && itr < end) {
 		itr++; //TODO potential for seg fault
@@ -95,7 +170,9 @@ ConfigFile::ConfigFile(std::string content) {
 					(type, emptyTypes)
 				);
 		}
-		sections[type].push_back(new ConfigFile(section));
+		sectionHolder = new ConfigFile(section);
+		sectionHolder->setUnits(units);
+		sections[type].push_back(sectionHolder);
 	}
 }
 

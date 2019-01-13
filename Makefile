@@ -6,8 +6,11 @@ objs = $(gen)/main.o $(gen)/Planet.o $(gen)/FileReader.o $(gen)/ConfigFile.o
 
 $(bin)/mitt : $(objs)
 	@ echo "Linking MITT"
-	@ g++ -g $^ -o $@
+	@ g++ -g -Wall $^ -o $@
 
 $(gen)/%.o : $(src)/%.cpp
 	@ echo Compiling $<
-	@ g++ -g -c $< -o $@
+	@ g++ -g -Wall -c $< -o $@
+
+clean : 
+	rm $(objs)
