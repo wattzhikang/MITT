@@ -2,7 +2,7 @@ The Magical Interplanetary Trajectory Tool (MITT) will be an advanced yet intuit
 
 MITT will evaluate the orbits of planets using conic sections, but the evaluation of vessel trajectories will be fully numerical to allow for burn time and other physical effects to be accurately computed.
 
-MITT will work for any kind of macroscopic particle system, including single and multiple star systems. One day, perhaps, even relativistic effects will be computed, allowing for accurate trajectories to be computed around relativistic gravity sources such as black holes.
+A major goal of MITT is to work for any kind of gravitational system, including, but not limited to: single and multiple star systems, rosetta orbits, and all kinds of natural and artificial systems. One day, perhaps, even relativistic effects will be computed, allowing for accurate trajectories to be computed around relativistic gravity sources such as black holes.
 
 Goals:
 * MITT will allow the full suite of interplanetary trajectory tricks---all the way from simpe hohmann transfers to multiple stages of gravity assists like the Voyager and MESSENGER missions

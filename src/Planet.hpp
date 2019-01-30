@@ -6,6 +6,8 @@
 class Planet {
   private:
     std::string name;
+
+    //orbital elements
     int sma;
     float ecc;
     float inc;
@@ -13,6 +15,14 @@ class Planet {
     float ape;
     float tae;
     double epch;
+    Planet& centralBody;
+
+    //whether to use keplerian elements or vector elements
+    bool keplerian;
+
+    double x_pos, x_vel;
+    double y_pos, y_vel;
+    double z_pos, z_vel;
 
   public:
     Planet(std::string c_name,
@@ -26,6 +36,17 @@ class Planet {
       : name(c_name), sma(semiMajorAxis), inc(inclination), lan(longAscNode),
         ape(argPeriapsis), tae(truAnomaly), epch(epoch)
     {}
+
+    Planet(std::string name c_name,
+           double x_position,
+           double x_velocity,
+           double y_position,
+           double y_velocity,
+           double z_position,
+           double z_velocity)
+      : name(c_name), x_pos(x_position), x_vel(x_velocity), y_pos(y_velocity),
+        y_vel(y_velocity), z_pos(z_position), keplerian(false)
+      {}
 
     std::string to_string();
 };
