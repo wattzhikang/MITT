@@ -6,6 +6,9 @@
 class Planet {
   private:
     std::string name;
+    
+    //whether to use keplerian elements or vector elements
+    bool keplerian;
 
     //orbital elements
     int sma;
@@ -17,9 +20,7 @@ class Planet {
     double epch;
     Planet& centralBody;
 
-    //whether to use keplerian elements or vector elements
-    bool keplerian;
-
+    //vector elements
     double x_pos, x_vel;
     double y_pos, y_vel;
     double z_pos, z_vel;
@@ -50,5 +51,9 @@ class Planet {
 
     std::string to_string();
 };
+
+bool operator==(const Planet& planet1, const Planet& planet2) {
+  //TODO
+}
 
 #endif
