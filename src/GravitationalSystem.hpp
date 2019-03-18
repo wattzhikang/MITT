@@ -1,5 +1,14 @@
+/******************************************************************************
+GravitationalSystem.hpp
+Author: Zachariah Watt
+
+This class represents a bound gravitational system.
+******************************************************************************/
+
 #ifndef GRAV_SYSTEM_H
 #define GRAV_SYSTEM_H
+
+#include "Frame.hpp"
 
 class GravitationalSystem {
     private:
@@ -14,5 +23,5 @@ class GravitationalSystem {
         //and returned
         Frame getFrame(double epoch, double precision);
 };
-
+ 
 #endif

@@ -2,7 +2,11 @@ src = src
 bin = bin
 gen = bin/generated_files
 
-objs = $(gen)/main.o $(gen)/Planet.o $(gen)/FileReader.o $(gen)/ConfigFile.o
+objs = $(gen)/main.o\
+	$(gen)/Planet.o\
+	$(gen)/FileReader.o\
+	$(gen)/ConfigFile.o\
+	$(gen)/GravitationalSystem.o\
 
 $(bin)/mitt : $(objs)
 	@ echo "Linking MITT"

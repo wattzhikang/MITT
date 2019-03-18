@@ -32,7 +32,8 @@ int main() {
 				object->getAngle("lan"),
 				object->getAngle("ape"),
 				object->getAngle("tae"),
-				object->getDouble("epoch")
+				object->getDouble("epoch"),
+				NULL
 			)
 		);
 	}

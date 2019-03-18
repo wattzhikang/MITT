@@ -11,4 +11,4 @@ Goals:
 
 Contributing
 
-C++ is a new language for me. Prior to this project, I had experience with Java and C. I chose C++ for this project because I wanted to use objects, yet retain as much of the speed and efficiency of C as possible. I also wanted to learn this powerful and widely-used language. Thus, although I strive to learn and implement normal C++ conventions (for the naming of variables, methods, etc), my code often retains the Java feel. I hope to improve over time.
+C++ is a new language for me. Prior to this project, I had experience with Java and C. I chose C++ for this project because I wanted to learn this powerful and widely-used language. Thus, although I strive to learn and implement normal C++ conventions (for the naming of variables, methods, etc), my code often retains the Java feel, to the detriment of its quality. This will improve.
