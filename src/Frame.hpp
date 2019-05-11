@@ -22,7 +22,7 @@ class Frame {
     public:
         Frame(double c_epoch) : epoch(c_epoch) {}
 
-        getPosition(Planet& planet) {return frame[planet]};
+        getPosition(Planet& planet) 
 };
 
 #endif
