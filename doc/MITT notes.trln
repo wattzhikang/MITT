@@ -1,0 +1,493 @@
+{
+"formats": [
+{
+"fields": [
+{
+"fieldname": "Name",
+"fieldtype": "Text"
+}
+],
+"formatname": "DEFAULT",
+"outputlines": [
+"{*Name*}"
+],
+"titleline": "{*Name*}"
+}
+],
+"nodes": [
+{
+"children": [
+"3194e80e737b11e9a068c025e9299e09",
+"345dc98e737b11e9a068c025e9299e09"
+],
+"data": {
+"Name": "object"
+},
+"format": "DEFAULT",
+"uid": "015fe090737a11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "pan"
+},
+"format": "DEFAULT",
+"uid": "031817f8737b11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "time forward/backward"
+},
+"format": "DEFAULT",
+"uid": "04396970737b11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "n-body for anything with an engine"
+},
+"format": "DEFAULT",
+"uid": "0d57297e738611e9a068c025e9299e09"
+},
+{
+"children": [
+"1743b5ac737b11e9a068c025e9299e09",
+"1e0e0b08737b11e9a068c025e9299e09",
+"23703d50737b11e9a068c025e9299e09"
+],
+"data": {
+"Name": "grid"
+},
+"format": "DEFAULT",
+"uid": "160db2a0737b11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "polar/radial"
+},
+"format": "DEFAULT",
+"uid": "1743b5ac737b11e9a068c025e9299e09"
+},
+{
+"children": [
+"55f5bab6737b11e9a068c025e9299e09"
+],
+"data": {
+"Name": "System"
+},
+"format": "DEFAULT",
+"uid": "17db8fd6737a11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "Frame"
+},
+"format": "DEFAULT",
+"uid": "1a68a32e737a11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "cartesian"
+},
+"format": "DEFAULT",
+"uid": "1e0e0b08737b11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "orbit"
+},
+"format": "DEFAULT",
+"uid": "22c4dedc737c11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "rotate grid"
+},
+"format": "DEFAULT",
+"uid": "23703d50737b11e9a068c025e9299e09"
+},
+{
+"children": [
+"015fe090737a11e9a068c025e9299e09",
+"f7de55ca737d11e9a068c025e9299e09"
+],
+"data": {
+"Name": "List of objects"
+},
+"format": "DEFAULT",
+"uid": "2a21d67e737911e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "name"
+},
+"format": "DEFAULT",
+"uid": "3194e80e737b11e9a068c025e9299e09"
+},
+{
+"children": [
+"17db8fd6737a11e9a068c025e9299e09",
+"1a68a32e737a11e9a068c025e9299e09",
+"5b3d13a2737b11e9a068c025e9299e09"
+],
+"data": {
+"Name": "Model API"
+},
+"format": "DEFAULT",
+"uid": "32f46058733011e9a068c025e9299e09"
+},
+{
+"children": [
+"396cfaee737b11e9a068c025e9299e09"
+],
+"data": {
+"Name": "radio button: keplerian or absolute"
+},
+"format": "DEFAULT",
+"uid": "345dc98e737b11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "changes the fields"
+},
+"format": "DEFAULT",
+"uid": "396cfaee737b11e9a068c025e9299e09"
+},
+{
+"children": [
+"489f63f8737b11e9a068c025e9299e09"
+],
+"data": {
+"Name": "settings"
+},
+"format": "DEFAULT",
+"uid": "471660a4737b11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "algorithm"
+},
+"format": "DEFAULT",
+"uid": "489f63f8737b11e9a068c025e9299e09"
+},
+{
+"children": [
+"52661650737811e9a068c025e9299e09"
+],
+"data": {
+"Name": "List of Thrust Events"
+},
+"format": "DEFAULT",
+"uid": "4e10751e737811e9a068c025e9299e09"
+},
+{
+"children": [
+"5434bacc737811e9a068c025e9299e09",
+"6ed4c2a4737911e9a068c025e9299e09",
+"714bdb6c737911e9a068c025e9299e09"
+],
+"data": {
+"Name": "Acceleration Event (time based)"
+},
+"format": "DEFAULT",
+"uid": "52661650737811e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "object"
+},
+"format": "DEFAULT",
+"uid": "5434bacc737811e9a068c025e9299e09"
+},
+{
+"children": [
+"f7c3696a738511e9a068c025e9299e09"
+],
+"data": {
+"Name": "algorithm decorator"
+},
+"format": "DEFAULT",
+"uid": "55f5bab6737b11e9a068c025e9299e09"
+},
+{
+"children": [
+"2a21d67e737911e9a068c025e9299e09"
+],
+"data": {
+"Name": "System Editor"
+},
+"format": "DEFAULT",
+"uid": "58499f42737811e9a068c025e9299e09"
+},
+{
+"children": [
+"5ca2c2a0737b11e9a068c025e9299e09"
+],
+"data": {
+"Name": "body"
+},
+"format": "DEFAULT",
+"uid": "5b3d13a2737b11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "thruster decorator"
+},
+"format": "DEFAULT",
+"uid": "5ca2c2a0737b11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "clear all"
+},
+"format": "DEFAULT",
+"uid": "601ee960737e11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "start date"
+},
+"format": "DEFAULT",
+"uid": "6ed4c2a4737911e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "end date and/or delta-v"
+},
+"format": "DEFAULT",
+"uid": "714bdb6c737911e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "play/pause"
+},
+"format": "DEFAULT",
+"uid": "915c8b32737d11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "time rate"
+},
+"format": "DEFAULT",
+"uid": "93362f44737d11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "import"
+},
+"format": "DEFAULT",
+"uid": "b4c48dca737a11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "export"
+},
+"format": "DEFAULT",
+"uid": "b6109f66737a11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "check box for labels"
+},
+"format": "DEFAULT",
+"uid": "cc20a89a738511e9a068c025e9299e09"
+},
+{
+"children": [
+"d951825e737711e9a068c025e9299e09",
+"def81d26737711e9a068c025e9299e09",
+"e2bef5ba737711e9a068c025e9299e09",
+"471660a4737b11e9a068c025e9299e09"
+],
+"data": {
+"Name": "View"
+},
+"format": "DEFAULT",
+"uid": "d6ca8940737711e9a068c025e9299e09"
+},
+{
+"children": [
+"db8de2d0737a11e9a068c025e9299e09",
+"ea45022c737a11e9a068c025e9299e09",
+"f556503a737a11e9a068c025e9299e09"
+],
+"data": {
+"Name": "3D View"
+},
+"format": "DEFAULT",
+"uid": "d951825e737711e9a068c025e9299e09"
+},
+{
+"children": [
+"df12d262737a11e9a068c025e9299e09",
+"e0f9d1f2737a11e9a068c025e9299e09",
+"e2e70836737a11e9a068c025e9299e09",
+"e4d08370737a11e9a068c025e9299e09"
+],
+"data": {
+"Name": "view information"
+},
+"format": "DEFAULT",
+"uid": "db8de2d0737a11e9a068c025e9299e09"
+},
+{
+"children": [
+"b4c48dca737a11e9a068c025e9299e09",
+"b6109f66737a11e9a068c025e9299e09",
+"58499f42737811e9a068c025e9299e09"
+],
+"data": {
+"Name": "Mission"
+},
+"format": "DEFAULT",
+"uid": "def81d26737711e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "focus"
+},
+"format": "DEFAULT",
+"uid": "df12d262737a11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "FOV"
+},
+"format": "DEFAULT",
+"uid": "e0f9d1f2737a11e9a068c025e9299e09"
+},
+{
+"children": [
+"4e10751e737811e9a068c025e9299e09",
+"601ee960737e11e9a068c025e9299e09"
+],
+"data": {
+"Name": "Events"
+},
+"format": "DEFAULT",
+"uid": "e2bef5ba737711e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "Radius"
+},
+"format": "DEFAULT",
+"uid": "e2e70836737a11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "Date and time"
+},
+"format": "DEFAULT",
+"uid": "e4d08370737a11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "view itself"
+},
+"format": "DEFAULT",
+"uid": "ea45022c737a11e9a068c025e9299e09"
+},
+{
+"children": [
+"fbd3c2b2737a11e9a068c025e9299e09",
+"fdc3543e737a11e9a068c025e9299e09",
+"fedae0bc737a11e9a068c025e9299e09",
+"031817f8737b11e9a068c025e9299e09",
+"22c4dedc737c11e9a068c025e9299e09",
+"04396970737b11e9a068c025e9299e09",
+"915c8b32737d11e9a068c025e9299e09",
+"93362f44737d11e9a068c025e9299e09",
+"160db2a0737b11e9a068c025e9299e09",
+"cc20a89a738511e9a068c025e9299e09"
+],
+"data": {
+"Name": "view buttons and options"
+},
+"format": "DEFAULT",
+"uid": "f556503a737a11e9a068c025e9299e09"
+},
+{
+"children": [
+"fb97a74a738511e9a068c025e9299e09",
+"0d57297e738611e9a068c025e9299e09"
+],
+"data": {
+"Name": "vanilla algorithm"
+},
+"format": "DEFAULT",
+"uid": "f7c3696a738511e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "new object"
+},
+"format": "DEFAULT",
+"uid": "f7de55ca737d11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "for objects determined to be in stable orbits, it just uses conic sections"
+},
+"format": "DEFAULT",
+"uid": "fb97a74a738511e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "focus"
+},
+"format": "DEFAULT",
+"uid": "fbd3c2b2737a11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "fov"
+},
+"format": "DEFAULT",
+"uid": "fdc3543e737a11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "zoom"
+},
+"format": "DEFAULT",
+"uid": "fedae0bc737a11e9a068c025e9299e09"
+}
+],
+"properties": {
+"tlversion": "3.0.3",
+"topnodes": [
+"32f46058733011e9a068c025e9299e09",
+"d6ca8940737711e9a068c025e9299e09"
+]
+}
+}

@@ -1,0 +1,41 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>150</x><y>340</y><w>130</w><h>90</h></coordinates><panel_attributes>Position
+--
+x, y z: double
+epoch: double
+--
+getX(): double
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>110</y><w>190</w><h>150</h></coordinates><panel_attributes>Planet
+--
+name: string
+sma, ecc, inc ..., epch: double
+x_pos, x_vel, ..., z_vel: double
+keplerian: bool
+Planet* center
+--
+_init_(name, sma, ecc, ...)
+_init_(name, x_pos, ...)
+to_string(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>380</x><y>120</y><w>240</w><h>100</h></coordinates><panel_attributes>GravitationalSystem
+--
+frames: DataStructure&lt;Frame&gt;
+planets: DataStructure&lt;Planet&gt;
+--
+getFrame(epoch, precision): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>610</y><w>280</w><h>230</h></coordinates><panel_attributes>ConfigFile
+--
+properties: Map&lt;string, string&gt;
+sections: Map&lt;string, vector&lt;ConfigFile&gt; &gt;
+units: Map&lt;unitType, Map&lt;string, double&gt; &gt;
+--
+_init_(string)
+setUnits(ConfigFile): void
+getSections(string): vector&lt;ConfigFile&gt;
+to_string(): string
+
+getToken(string): string
+getDistance(string): double
+getAngle(string): double
+getDate(string): double
+getDouble(string): double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>170</y><w>100</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>80;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>290</y><w>230</w><h>170</h></coordinates><panel_attributes>Frame
+--
+positions: Map&lt;Planet, Position&gt;
+--
+getPosition</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>110</x><y>80</y><w>530</w><h>390</h></coordinates><panel_attributes>Model</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>110</x><y>490</y><w>530</w><h>360</h></coordinates><panel_attributes>Controller</panel_attributes><additional_attributes></additional_attributes></element></diagram>

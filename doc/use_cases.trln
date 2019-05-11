@@ -1,0 +1,352 @@
+{
+"formats": [
+{
+"fields": [
+{
+"fieldname": "Name",
+"fieldtype": "Text"
+}
+],
+"formatname": "DEFAULT",
+"outputlines": [
+"{*Name*}"
+],
+"titleline": "{*Name*}"
+}
+],
+"nodes": [
+{
+"children": [
+"1e8cd89a737e11e9a068c025e9299e09",
+"0a6fa4c0738111e9a068c025e9299e09"
+],
+"data": {
+"Name": "click the '+' button"
+},
+"format": "DEFAULT",
+"uid": "03992f86738111e9a068c025e9299e09"
+},
+{
+"children": [
+"d9331384738411e9a068c025e9299e09",
+"e2e87d88738411e9a068c025e9299e09",
+"4c8d7e96738511e9a068c025e9299e09",
+"0ec8ec52738111e9a068c025e9299e09",
+"c0ace092738411e9a068c025e9299e09",
+"70d38188738511e9a068c025e9299e09",
+"e620758c738411e9a068c025e9299e09"
+],
+"data": {
+"Name": "fill in the parameters"
+},
+"format": "DEFAULT",
+"uid": "0a6fa4c0738111e9a068c025e9299e09"
+},
+{
+"children": [
+"b974bf20738411e9a068c025e9299e09"
+],
+"data": {
+"Name": "keplerian or absolute"
+},
+"format": "DEFAULT",
+"uid": "0ec8ec52738111e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "in the paramaters tab, in the empty list of objects"
+},
+"format": "DEFAULT",
+"uid": "1e8cd89a737e11e9a068c025e9299e09"
+},
+{
+"children": [
+"2fbfa7ac737c11e9a068c025e9299e09",
+"69f01056737c11e9a068c025e9299e09"
+],
+"data": {
+"Name": "recreate Voyager Grand Tour"
+},
+"format": "DEFAULT",
+"uid": "261f035a737c11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "import Solar System"
+},
+"format": "DEFAULT",
+"uid": "2fbfa7ac737c11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "for the vessel"
+},
+"format": "DEFAULT",
+"uid": "31fda8ac738611e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "size proportional to radius?"
+},
+"format": "DEFAULT",
+"uid": "46e5b292738511e9a068c025e9299e09"
+},
+{
+"children": [
+"6386e59c738511e9a068c025e9299e09"
+],
+"data": {
+"Name": "radius"
+},
+"format": "DEFAULT",
+"uid": "4c8d7e96738511e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "add course change to orbit the moon"
+},
+"format": "DEFAULT",
+"uid": "4db3c738737d11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "add course change to get back"
+},
+"format": "DEFAULT",
+"uid": "53a1221c737d11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "units like Jupiter masses, Earth masses, solar masses, etc"
+},
+"format": "DEFAULT",
+"uid": "5b1ec398738511e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "units like Jupiter radii, Earth radii, solar radii, etc"
+},
+"format": "DEFAULT",
+"uid": "6386e59c738511e9a068c025e9299e09"
+},
+{
+"children": [
+"6d64a624737d11e9a068c025e9299e09",
+"70e71570737d11e9a068c025e9299e09",
+"73d37026737d11e9a068c025e9299e09",
+"8047e9d6737d11e9a068c025e9299e09"
+],
+"data": {
+"Name": "fly to higher orbit"
+},
+"format": "DEFAULT",
+"uid": "64f6751c737d11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "create a vessel in Earth orbit"
+},
+"format": "DEFAULT",
+"uid": "69f01056737c11e9a068c025e9299e09"
+},
+{
+"children": [
+"03992f86738111e9a068c025e9299e09",
+"31fda8ac738611e9a068c025e9299e09"
+],
+"data": {
+"Name": "create the system"
+},
+"format": "DEFAULT",
+"uid": "6d64a624737d11e9a068c025e9299e09"
+},
+{
+"children": [
+"738dbd4e738511e9a068c025e9299e09",
+"801abb66738511e9a068c025e9299e09"
+],
+"data": {
+"Name": "for keplerian"
+},
+"format": "DEFAULT",
+"uid": "70d38188738511e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "import the system"
+},
+"format": "DEFAULT",
+"uid": "70e71570737d11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "must select EXISTING central body"
+},
+"format": "DEFAULT",
+"uid": "738dbd4e738511e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "add course change"
+},
+"format": "DEFAULT",
+"uid": "73d37026737d11e9a068c025e9299e09"
+},
+{
+"children": [
+"7bad31c0737c11e9a068c025e9299e09",
+"81a93a06737c11e9a068c025e9299e09",
+"9c3b021e737c11e9a068c025e9299e09",
+"a3056328737c11e9a068c025e9299e09",
+"4db3c738737d11e9a068c025e9299e09",
+"53a1221c737d11e9a068c025e9299e09"
+],
+"data": {
+"Name": "fly to the moon"
+},
+"format": "DEFAULT",
+"uid": "78f2edb2737c11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "import the Solar System"
+},
+"format": "DEFAULT",
+"uid": "7bad31c0737c11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "fill in orbital elements"
+},
+"format": "DEFAULT",
+"uid": "801abb66738511e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "add final course change"
+},
+"format": "DEFAULT",
+"uid": "8047e9d6737d11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "create the Solar System"
+},
+"format": "DEFAULT",
+"uid": "81a93a06737c11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "create a vessel in Earth orbit"
+},
+"format": "DEFAULT",
+"uid": "9c3b021e737c11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "add a course change to go to the moon"
+},
+"format": "DEFAULT",
+"uid": "a3056328737c11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "first must be absolute"
+},
+"format": "DEFAULT",
+"uid": "b974bf20738411e9a068c025e9299e09"
+},
+{
+"children": [
+"c33daf8a738411e9a068c025e9299e09",
+"cdaf0e8c738411e9a068c025e9299e09"
+],
+"data": {
+"Name": "for absolute"
+},
+"format": "DEFAULT",
+"uid": "c0ace092738411e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "fill in position and velocity"
+},
+"format": "DEFAULT",
+"uid": "c33daf8a738411e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "for fiirst object, 0 is suggested for all fields"
+},
+"format": "DEFAULT",
+"uid": "cdaf0e8c738411e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "name"
+},
+"format": "DEFAULT",
+"uid": "d9331384738411e9a068c025e9299e09"
+},
+{
+"children": [
+"261f035a737c11e9a068c025e9299e09",
+"78f2edb2737c11e9a068c025e9299e09",
+"64f6751c737d11e9a068c025e9299e09"
+],
+"data": {
+"Name": "use cases"
+},
+"format": "DEFAULT",
+"uid": "dc75b640737b11e9a068c025e9299e09"
+},
+{
+"children": [
+"5b1ec398738511e9a068c025e9299e09"
+],
+"data": {
+"Name": "mass"
+},
+"format": "DEFAULT",
+"uid": "e2e87d88738411e9a068c025e9299e09"
+},
+{
+"children": [
+"46e5b292738511e9a068c025e9299e09"
+],
+"data": {
+"Name": "color, size, etc"
+},
+"format": "DEFAULT",
+"uid": "e620758c738411e9a068c025e9299e09"
+}
+],
+"properties": {
+"tlversion": "3.0.3",
+"topnodes": [
+"dc75b640737b11e9a068c025e9299e09"
+]
+}
+}
