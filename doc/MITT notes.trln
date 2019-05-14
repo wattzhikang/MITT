@@ -18,7 +18,11 @@
 {
 "children": [
 "3194e80e737b11e9a068c025e9299e09",
-"345dc98e737b11e9a068c025e9299e09"
+"345dc98e737b11e9a068c025e9299e09",
+"5403616675a811e9b5f6525400926a44",
+"5557130075a811e9b5f6525400926a44",
+"588c6a3e75a811e9b5f6525400926a44",
+"93b0ad8275a811e9b5f6525400926a44"
 ],
 "data": {
 "Name": "object"
@@ -204,10 +208,26 @@
 {
 "children": [],
 "data": {
+"Name": "mass"
+},
+"format": "DEFAULT",
+"uid": "5403616675a811e9b5f6525400926a44"
+},
+{
+"children": [],
+"data": {
 "Name": "object"
 },
 "format": "DEFAULT",
 "uid": "5434bacc737811e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "radius"
+},
+"format": "DEFAULT",
+"uid": "5557130075a811e9b5f6525400926a44"
 },
 {
 "children": [
@@ -231,6 +251,16 @@
 },
 {
 "children": [
+"5c88de3875a811e9b5f6525400926a44"
+],
+"data": {
+"Name": "thruster"
+},
+"format": "DEFAULT",
+"uid": "588c6a3e75a811e9b5f6525400926a44"
+},
+{
+"children": [
 "5ca2c2a0737b11e9a068c025e9299e09"
 ],
 "data": {
@@ -238,6 +268,17 @@
 },
 "format": "DEFAULT",
 "uid": "5b3d13a2737b11e9a068c025e9299e09"
+},
+{
+"children": [
+"606eda2a75a811e9b5f6525400926a44",
+"63653c6075a811e9b5f6525400926a44"
+],
+"data": {
+"Name": "button"
+},
+"format": "DEFAULT",
+"uid": "5c88de3875a811e9b5f6525400926a44"
 },
 {
 "children": [],
@@ -254,6 +295,22 @@
 },
 "format": "DEFAULT",
 "uid": "601ee960737e11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "remove/add thruster"
+},
+"format": "DEFAULT",
+"uid": "606eda2a75a811e9b5f6525400926a44"
+},
+{
+"children": [],
+"data": {
+"Name": "only one thruster for an object"
+},
+"format": "DEFAULT",
+"uid": "63653c6075a811e9b5f6525400926a44"
 },
 {
 "children": [],
@@ -286,6 +343,14 @@
 },
 "format": "DEFAULT",
 "uid": "93362f44737d11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "remote object"
+},
+"format": "DEFAULT",
+"uid": "93b0ad8275a811e9b5f6525400926a44"
 },
 {
 "children": [],
@@ -484,7 +549,7 @@
 }
 ],
 "properties": {
-"tlversion": "3.0.3",
+"tlversion": "3.0.1",
 "topnodes": [
 "32f46058733011e9a068c025e9299e09",
 "d6ca8940737711e9a068c025e9299e09"
