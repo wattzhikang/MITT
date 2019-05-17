@@ -1,11 +1,15 @@
-#ifndef PLANET_H
-#define PLANET_H
+#ifndef BODY_H
+#define BODY_H
 
 #include <string>
 
-class Planet {
+#include "State.hpp"
+
+class Body {
   private:
+    //intrinsic properties
     std::string name;
+    double mass;
     
     //whether to use keplerian elements or vector elements
     bool keplerian;
@@ -18,15 +22,13 @@ class Planet {
     double ape;
     double tae;
     double epch;
-    Planet* center;
+    Body* center;
 
     //initial vector elements
-    double x_pos, x_vel;
-    double y_pos, y_vel;
-    double z_pos, z_vel;
+    State* stateVectors;
 
   public:
-    Planet(std::string c_name,
+    Body(std::string c_name,
            double semiMajorAxis,
            double eccentricity,
            double inclination,
@@ -34,19 +36,19 @@ class Planet {
            double argPeriapsis,
            double truAnomaly,
            double epoch,
-           Planet* centralBody)
+           Body* centralBody)
       : name(c_name), sma(semiMajorAxis), inc(inclination), lan(longAscNode),
         ape(argPeriapsis), tae(truAnomaly), epch(epoch), center(centralBody)
     {}
 
-    Planet(std::string c_name,
+    Body(std::string c_name,
            double x_position,
            double x_velocity,
            double y_position,
            double y_velocity,
            double z_position,
            double z_velocity,
-           Planet* centralBody)
+           Body* centralBody)
       : name(c_name), keplerian(false), center(centralBody), x_pos(x_position),
         x_vel(x_velocity), y_pos(y_velocity), y_vel(y_velocity),
         z_pos(z_position), z_vel(z_velocity)
@@ -55,7 +57,7 @@ class Planet {
     std::string to_string();
 };
 /*
-bool operator==(const Planet& planet1, const Planet& planet2) {
+bool operator==(const Body& Body1, const Body& Body2) {
   //TODO
   return true;
 }

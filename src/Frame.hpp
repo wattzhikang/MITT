@@ -10,19 +10,29 @@ This represents a snapshot of a gravitational system at an instant in time
 
 #include <map>
 
-#include "Planet.hpp"
+#include "Body.hpp"
 #include "Position.hpp"
 
 class Frame {
     private:
         double epoch;
 
-        //a data structure (map?) of planets <Planet, coordinates>
-        std::map<Planet, Position> frame;
+        std::map<Body, State> frame;
     public:
         Frame(double c_epoch) : epoch(c_epoch) {}
 
-        getPosition(Planet& planet) 
+        State getPosition(Body& planet);
+
+        bool engineOn(Body);
+
+        double getEpoch();
+
+        bool operator==(const Frame& right);
+        bool operator!=(const Frame& right);
+        bool operator>(const Frame& right);
+        bool operator>=(const Frame& right);
+        bool operator<(const Frame& right);
+        bool operator<=(const Frame& right);
 };
 
 #endif
