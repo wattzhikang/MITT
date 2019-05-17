@@ -10,6 +10,7 @@ class Body {
     //intrinsic properties
     std::string name;
     double mass;
+    double radius;
     
     //whether to use keplerian elements or vector elements
     bool keplerian;
@@ -29,6 +30,8 @@ class Body {
 
   public:
     Body(std::string c_name,
+           double mass,
+           double radius,
            double semiMajorAxis,
            double eccentricity,
            double inclination,
@@ -38,29 +41,37 @@ class Body {
            double epoch,
            Body* centralBody)
       : name(c_name), sma(semiMajorAxis), inc(inclination), lan(longAscNode),
-        ape(argPeriapsis), tae(truAnomaly), epch(epoch), center(centralBody)
+        ape(argPeriapsis), tae(truAnomaly), epch(epoch), center(centralBody),
+        keplerian(true), mass(mass), radius(radius)
     {}
 
     Body(std::string c_name,
-           double x_position,
-           double x_velocity,
-           double y_position,
-           double y_velocity,
-           double z_position,
-           double z_velocity,
-           Body* centralBody)
-      : name(c_name), keplerian(false), center(centralBody), x_pos(x_position),
-        x_vel(x_velocity), y_pos(y_velocity), y_vel(y_velocity),
-        z_pos(z_position), z_vel(z_velocity)
+           double mass,
+           double radius,
+           State* state)
+      : name(c_name), keplerian(false), mass(mass), radius(radius),
+        stateVectors(state), epch(state->getEpoch())
     {}
+
+    std::string getName();
+    double getMass();
+    double getRadius();
+
+    bool isKeplerian();
+
+    double getSMA();
+    double getECC();
+    double getLAN();
+    double getAPE();
+    double getTAE();
+    double getEpoch();
+    Body* getCenter();
+
+    State* getInitialState();
 
     std::string to_string();
 };
-/*
-bool operator==(const Body& Body1, const Body& Body2) {
-  //TODO
-  return true;
-}
-*/
+
+bool operator==(const Body& Body1, const Body& Body2);
 
 #endif
