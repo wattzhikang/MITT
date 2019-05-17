@@ -56,6 +56,18 @@
 },
 {
 "children": [
+"1a247f6e75f011e988c5c025e9299e09",
+"24b1ea8475f011e988c5c025e9299e09",
+"26f8340675f011e988c5c025e9299e09"
+],
+"data": {
+"Name": "presets"
+},
+"format": "DEFAULT",
+"uid": "0f615fde75f011e988c5c025e9299e09"
+},
+{
+"children": [
 "1743b5ac737b11e9a068c025e9299e09",
 "1e0e0b08737b11e9a068c025e9299e09",
 "23703d50737b11e9a068c025e9299e09"
@@ -83,6 +95,14 @@
 },
 "format": "DEFAULT",
 "uid": "17db8fd6737a11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "ion thruster"
+},
+"format": "DEFAULT",
+"uid": "1a247f6e75f011e988c5c025e9299e09"
 },
 {
 "children": [],
@@ -117,6 +137,22 @@
 "uid": "23703d50737b11e9a068c025e9299e09"
 },
 {
+"children": [],
+"data": {
+"Name": "VASMIR"
+},
+"format": "DEFAULT",
+"uid": "24b1ea8475f011e988c5c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "LOX rocket"
+},
+"format": "DEFAULT",
+"uid": "26f8340675f011e988c5c025e9299e09"
+},
+{
 "children": [
 "015fe090737a11e9a068c025e9299e09",
 "f7de55ca737d11e9a068c025e9299e09"
@@ -126,6 +162,22 @@
 },
 "format": "DEFAULT",
 "uid": "2a21d67e737911e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "mass ratio"
+},
+"format": "DEFAULT",
+"uid": "2eb08d7475f011e988c5c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "specific impulse"
+},
+"format": "DEFAULT",
+"uid": "31624e4a75f011e988c5c025e9299e09"
 },
 {
 "children": [],
@@ -156,6 +208,14 @@
 },
 "format": "DEFAULT",
 "uid": "345dc98e737b11e9a068c025e9299e09"
+},
+{
+"children": [],
+"data": {
+"Name": "max thrust"
+},
+"format": "DEFAULT",
+"uid": "34bdadbe75f011e988c5c025e9299e09"
 },
 {
 "children": [],
@@ -234,7 +294,7 @@
 "f7c3696a738511e9a068c025e9299e09"
 ],
 "data": {
-"Name": "algorithm decorator"
+"Name": "algorithm extension"
 },
 "format": "DEFAULT",
 "uid": "55f5bab6737b11e9a068c025e9299e09"
@@ -251,7 +311,11 @@
 },
 {
 "children": [
-"5c88de3875a811e9b5f6525400926a44"
+"5c88de3875a811e9b5f6525400926a44",
+"0f615fde75f011e988c5c025e9299e09",
+"2eb08d7475f011e988c5c025e9299e09",
+"31624e4a75f011e988c5c025e9299e09",
+"34bdadbe75f011e988c5c025e9299e09"
 ],
 "data": {
 "Name": "thruster"
@@ -549,7 +613,7 @@
 }
 ],
 "properties": {
-"tlversion": "3.0.1",
+"tlversion": "3.0.3",
 "topnodes": [
 "32f46058733011e9a068c025e9299e09",
 "d6ca8940737711e9a068c025e9299e09"

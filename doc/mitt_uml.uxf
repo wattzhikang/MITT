@@ -1,25 +1,51 @@
-<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>150</x><y>340</y><w>130</w><h>90</h></coordinates><panel_attributes>Position
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>580</x><y>540</y><w>170</w><h>140</h></coordinates><panel_attributes>State
+&lt;&lt;Immutable&gt;&gt;
 --
 x, y z: double
+x_vel, y_vel, z_vel: double
 epoch: double
 --
 getX(): double
-...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>110</y><w>190</w><h>150</h></coordinates><panel_attributes>Planet
+...
+
+==: operator</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>190</x><y>240</y><w>190</w><h>260</h></coordinates><panel_attributes>Body
+&lt;&lt;Immutable&gt;&gt;
 --
 name: string
+
+mass: double
+
 sma, ecc, inc ..., epch: double
-x_pos, x_vel, ..., z_vel: double
+center: Body*
+
+stateVectors: State
+
 keplerian: bool
-Planet* center
 --
 _init_(name, sma, ecc, ...)
 _init_(name, x_pos, ...)
-to_string(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>380</x><y>120</y><w>240</w><h>100</h></coordinates><panel_attributes>GravitationalSystem
+to_string(): string
+
+==: operator</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>480</x><y>130</y><w>270</w><h>310</h></coordinates><panel_attributes>Timeline
 --
-frames: DataStructure&lt;Frame&gt;
-planets: DataStructure&lt;Planet&gt;
+system: System
+mission: std::set&lt;Maneuver&gt;
+frames: std::set&lt;Frame&gt;
 --
-getFrame(epoch, precision): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>610</y><w>280</w><h>230</h></coordinates><panel_attributes>ConfigFile
+_init_()
+
+addBody(Body): void
+removeBody(Body): void
+addThruster(Body, Thruster): void
+removeThruster(Body): void
+
+addEvent(Maneuver): void
+removeEvent(Maneuver): void
+
+getSystem(): vector&lt;Body&gt;
+getMission(): vector&lt;Maneuver&gt;
+
+(v) getFrame(epoch, precision): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>990</y><w>280</w><h>230</h></coordinates><panel_attributes>ConfigFile
 --
 properties: Map&lt;string, string&gt;
 sections: Map&lt;string, vector&lt;ConfigFile&gt; &gt;
@@ -34,8 +60,43 @@ getToken(string): string
 getDistance(string): double
 getAngle(string): double
 getDate(string): double
-getDouble(string): double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>170</y><w>100</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>80;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>290</y><w>230</w><h>170</h></coordinates><panel_attributes>Frame
+getDouble(string): double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>200</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1010</x><y>500</y><w>210</w><h>120</h></coordinates><panel_attributes>Frame
+&lt;&lt;Immutable&gt;&gt;
 --
-positions: Map&lt;Planet, Position&gt;
+positions: Map&lt;Body, Position&gt;
 --
-getPosition</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>110</x><y>80</y><w>530</w><h>390</h></coordinates><panel_attributes>Model</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>110</x><y>490</y><w>530</w><h>360</h></coordinates><panel_attributes>Controller</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+getEpoch(): double
+getPosition(Body): Position
+engineOn(Body): bool
+less: operator</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>0</x><y>0</y><w>1230</w><h>810</h></coordinates><panel_attributes>Model</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>390</x><y>960</y><w>1030</w><h>330</h></coordinates><panel_attributes>Controller</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>800</x><y>110</y><w>240</w><h>90</h></coordinates><panel_attributes>VanillaAlgorithm
+&lt;&lt;Timeline&gt;&gt;
+--
+--
++ getFrame(epoch, precision): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>740</x><y>130</y><w>80</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;30;60;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>800</x><y>220</y><w>100</w><h>30</h></coordinates><panel_attributes>...
+--
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>740</x><y>220</y><w>80</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>10</x><y>310</y><w>170</w><h>120</h></coordinates><panel_attributes>Thruster
+&lt;&lt;Immutable&gt;&gt;
+--
+specificImpulse: double
+massRatio: double
+maxThrust: double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>200</y><w>30</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>810</x><y>350</y><w>140</w><h>150</h></coordinates><panel_attributes>Maneuver
+&lt;&lt;Immutable&gt;&gt;
+--
+startEpoch: double
+endEpoch: double
+thrust: double
+body: Body*
+
+less: operator
+==: operator</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>740</x><y>340</y><w>90</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;70;80</additional_attributes></element><element><id>Relation</id><coordinates><x>340</x><y>213</y><w>100</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>40;50;80;50;80;10;10;10;10;30</additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>23</y><w>330</w><h>190</h></coordinates><panel_attributes>System
+--
+bodies: std::vector&lt;Body&gt;
+thrusters: std::unordered_map&lt;Body*, Thruster&gt;
+--
+addBody(Body): void
+removeBody(Body): void
+
+addThruster(Body, Thruster): void
+removeThruster(Body)
+
+getBodies(): vector&lt;Body&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>350</x><y>140</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>130;30;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>470</y><w>230</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;210;100</additional_attributes></element><element><id>Relation</id><coordinates><x>740</x><y>550</y><w>290</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>270;10;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>448</y><w>460</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>440;20;10;10</additional_attributes></element></diagram>
