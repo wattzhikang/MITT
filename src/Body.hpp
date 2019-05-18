@@ -49,7 +49,7 @@ class Body {
            double mass,
            double radius,
            State* state)
-      : name(c_name), mass(mass), radius(radius), keplerian(true),
+      : name(c_name), mass(mass), radius(radius), keplerian(false),
         epch(state->getEpoch()), stateVectors(state)
     {}
 
@@ -61,6 +61,7 @@ class Body {
 
     double getSMA();
     double getECC();
+    double getINC();
     double getLAN();
     double getAPE();
     double getTAE();

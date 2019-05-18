@@ -24,6 +24,10 @@ double Body::getECC() {
 	return ecc;
 }
 
+double Body::getINC() {
+	return inc;
+}
+
 double Body::getLAN() {
 	return lan;
 }
