@@ -16,7 +16,7 @@ FLAGS = -g -Wall
 
 # This rule generates the MITT binary by linking all the generated
 # files
-$(BIN)/mitt : $(GEN)/$(OBJS).o
+$(BIN)/mitt : test $(GEN)/$(OBJS).o
 	@ echo "Linking MITT"
 	@ g++ $(FLAGS) $^ -o $@
 
