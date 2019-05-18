@@ -40,17 +40,17 @@ class Body {
            double truAnomaly,
            double epoch,
            Body* centralBody)
-      : name(c_name), sma(semiMajorAxis), inc(inclination), lan(longAscNode),
-        ape(argPeriapsis), tae(truAnomaly), epch(epoch), center(centralBody),
-        keplerian(true), mass(mass), radius(radius)
+      : name(c_name), mass(mass), radius(radius), keplerian(true), sma(semiMajorAxis), ecc(eccentricity),
+        inc(inclination), lan(longAscNode), ape(argPeriapsis), tae(truAnomaly),
+        epch(epoch), center(centralBody)
     {}
 
     Body(std::string c_name,
            double mass,
            double radius,
            State* state)
-      : name(c_name), keplerian(false), mass(mass), radius(radius),
-        stateVectors(state), epch(state->getEpoch())
+      : name(c_name), mass(mass), radius(radius), keplerian(true),
+        epch(state->getEpoch()), stateVectors(state)
     {}
 
     std::string getName();

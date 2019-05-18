@@ -48,30 +48,30 @@ State* Body::getInitialState() {
 	return stateVectors;
 }
 
-std::string Planet::to_string() {
+std::string Body::to_string() {
 	//TODO: what if planet is non-keplerian
 
 	if (keplerian) {
-		return Planet::name +
+		return Body::name
 			+ std::string("mass: ")
 			+ std::to_string(mass) + std::string("\n")
 			+ std::string("radius: ")
 			+ std::to_string(radius) + std::string("\n")
 			+ std::string("semi-major axis: ")
-			+ std::to_string(Planet::sma) + std::string("\n")
+			+ std::to_string(Body::sma) + std::string("\n")
 			+ std::string("inclination: ")
-			+ std::to_string(Planet::inc) + std::string("\n")
+			+ std::to_string(Body::inc) + std::string("\n")
 			+ std::string("longitude of ascending node: ")
-			+ std::to_string(Planet::lan) + std::string("\n")
+			+ std::to_string(Body::lan) + std::string("\n")
 			+ std::string("argument of periapsis: ")
-			+ std::to_string(Planet::ape) + std::string("\n")
+			+ std::to_string(Body::ape) + std::string("\n")
 			+ std::string("true anomaly at epoch: ")
-			+ std::to_string(Planet::tae) + std::string("\n")
+			+ std::to_string(Body::tae) + std::string("\n")
 			+ std::string("epoch: ")
-			+ std::to_string(Planet::epch) + std::string("\n")
+			+ std::to_string(Body::epch) + std::string("\n")
 		;
 	} else {
-		return Planet::name +
+		return Body::name
 			+ std::string("mass: ")
 			+ std::to_string(mass) + std::string("\n")
 			+ std::string("radius: ")
@@ -89,12 +89,12 @@ std::string Planet::to_string() {
 			+ std::string("Z Velocity")
 			+ std::to_string(stateVectors->getZVelocity()) + std::string("\n")
 			+ std::string("epoch: ")
-			+ std::to_string(Planet::epch) + std::string("\n")
+			+ std::to_string(Body::epch) + std::string("\n")
 		;
 	}
 }
 
-bool operator==(const Body& Body1, const Body& Body2) {
+bool operator==(Body& Body1, Body& Body2) {
 	if (Body1.getName() != Body2.getName()) {
 		return false;
 	} else {
