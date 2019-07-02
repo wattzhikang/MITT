@@ -4,7 +4,7 @@
 class Thruster {
     private:
         double specificImpulse;
-        double massRatio;
+        double massRatio; //payload fraction
         double maxThrust;
     public:
         Thruster(
@@ -12,14 +12,14 @@ class Thruster {
             double massRatio,
             double maxThrust
             )
-            : speficicImpulse(specificImpulse),
+            : specificImpulse(specificImpulse),
             massRatio(massRatio),
             maxThrust(maxThrust)
         {}
 
-        double getSpecificImpulse();
-        double getMassRatio();
-        double getMassThrust();
-}
+        double getSpecificImpulse() {return specificImpulse;}
+        double getMassRatio() {return massRatio;}
+        double getMassThrust() {return maxThrust;}
+};
 
 #endif
