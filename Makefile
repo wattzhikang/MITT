@@ -1,8 +1,10 @@
+# These are the main directories in the project
 TST = tst
 SRC = src
 BIN = bin
 GEN = $(BIN)/generated_files
 
+# These variables are only used for compiling the Google Test Framework
 GTEST_DIR = $(TST)/googletest/googletest
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 				$(GTEST_DIR)/include/gtest/internal/*.h
@@ -10,8 +12,30 @@ GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h \
 				$(GTEST_HEADERS)
 CPPFLAGS += -isystem $(GTEST_DIR)/include
 
-OBJS = Body
+# This is the most important variable. It is a list of all the
+# compilation units
+ITMS := Body
 
+# Header-only sources go here. They still need to be tested,
+# but not compiled standalone.
+HDR_ONLY := Thruster
+
+# The source files of the compilation units
+SRCS := $(foreach ITM,$(ITMS),$(SRC)/$(ITM).cpp)
+
+# The object files of the compilation units
+OBJS := $(foreach ITM,$(ITMS),$(GEN)/$(ITM).o)
+
+# The source, object, and executable files of the tests for the
+# compilation units
+TST_SRCS := $(foreach ITM,$(ITMS),$(TST)/$(ITM)Test.cpp)
+TST_SRCS += $(foreach ITM,$(HDR_ONLY),$(TST)/$(ITM)Test.cpp)
+TST_OBJS := $(foreach ITM,$(ITMS),$(GEN)/$(ITM)Test.o)
+TST_OBJS += $(foreach ITM,$(HDR_ONLY),$(GEN)/$(ITM)Test.o)
+TST_EX := $(foreach ITM,$(ITMS),$(GEN)/$(ITM)Test)
+TST_EX += $(foreach ITM,$(HDR_ONLY),$(GEN)/$(ITM)Test)
+
+# Compiler flags
 FLAGS = -g -Wall
 
 # This rule generates the MITT binary by linking all the generated
@@ -21,7 +45,7 @@ $(BIN)/mitt : test $(GEN)/$(OBJS).o
 	@ g++ $(FLAGS) $^ -o $@
 
 # This rule generates all the object files needed for the binary
-$(GEN)/$(OBJS).o : $(SRC)/$(OBJS).cpp
+$(OBJS) : $(SRCS)
 	@ echo Compiling $<
 	@ g++ $(FLAGS) -c $< -o $@
 
@@ -51,19 +75,20 @@ $(GEN)/libgtest_main.a : $(GEN)/gtest-all.o $(GEN)/gtest_main.o
 # These next two rules compile the object files for the tests and
 # link the binaries together
 
-$(GEN)/$(OBJS)Test.o : $(TST)/$(OBJS)Test.cpp $(GTEST_HEADERS)
-	@ echo "Compiling unit test " $< "..."
-	@ g++ $(CPPFLAGS) $(FLAGS) -c $< -o $@
+$(TST_OBJS) : $(TST_SRCS) $(GTEST_HEADERS)
+	@ echo "Compiling unit test " $@ "..."
+	@ g++ $(CPPFLAGS) $(FLAGS) -c $(patsubst $(GEN)%,$(TST)%,$(@:.o=.cpp)) -o $@
 
-$(GEN)/$(OBJS)Test : $(GEN)/$(OBJS).o $(GEN)/$(OBJS)Test.o \
-                     $(GEN)/libgtest.a $(GEN)/libgtest_main.a
-	@ echo "Linking Unit Test " $< "..."
+$(TST_EX) : $(OBJS) $(TST_OBJS) \
+            $(GEN)/libgtest.a $(GEN)/libgtest_main.a
+	@ echo "Linking Unit Test " $@ "..."
 	@ g++ $(CPPFLAGS) $(FLAGS) -L$(GEN) -lgtest_main -lpthread $^ -o $@
 
 # This rule runs the unit tests
-test : $(GEN)/$(OBJS)Test
+test : $(TST_EX)
+	@ echo "A list of all the tests: " $(TST_EX)
 	@ echo "Running Test" $<
-	@ $(GEN)/$(OBJS)Test
+	@ $<
 
 clean : 
-	rm $(GEN)/*
+	@ rm -v $(GEN)/*
