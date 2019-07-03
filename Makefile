@@ -14,11 +14,11 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include
 
 # This is the most important variable. It is a list of all the
 # compilation units
-ITMS := Body
+ITMS := Body Maneuver
 
 # Header-only sources go here. They still need to be tested,
 # but not compiled standalone.
-HDR_ONLY := Thruster
+HDR_ONLY := Thruster State
 
 # The source files of the compilation units
 SRCS := $(foreach ITM,$(ITMS),$(SRC)/$(ITM).cpp)
@@ -46,8 +46,8 @@ $(BIN)/mitt : test $(GEN)/$(OBJS).o
 
 # This rule generates all the object files needed for the binary
 $(OBJS) : $(SRCS)
-	@ echo Compiling $<
-	@ g++ $(FLAGS) -c $< -o $@
+	@ echo Compiling $@
+	@ g++ $(FLAGS) -c $(patsubst $(GEN)%,$(SRC)%,$(@:.o=.cpp)) -o $@
 
 .PHONY: clean test
 
