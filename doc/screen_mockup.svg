@@ -229,22 +229,29 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.8"
-     inkscape:cx="733.5787"
-     inkscape:cy="289.8243"
+     inkscape:zoom="0.56568543"
+     inkscape:cx="485.5084"
+     inkscape:cy="507.65153"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer5"
      showgrid="false"
      inkscape:snap-global="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1016"
-     inkscape:window-x="0"
+     inkscape:window-width="1680"
+     inkscape:window-height="986"
+     inkscape:window-x="1280"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-bottom="0"
+     inkscape:object-paths="true"
+     inkscape:snap-nodes="false"
+     inkscape:snap-others="false"
+     inkscape:snap-to-guides="false"
+     inkscape:snap-grids="false"
+     inkscape:snap-page="true"
+     inkscape:snap-bbox="true" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -253,16 +260,29 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="background">
+    <rect
+       style="fill:#feffff;fill-opacity:1;stroke:none;stroke-width:1.66499996;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1554"
+       width="352.64621"
+       height="260.32965"
+       x="-0.27641895"
+       y="-0.21031755" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="body_boxes"
      style="display:inline"
-     transform="translate(1.7010498e-6)">
+     transform="translate(1.7010498e-6)"
+     sodipodi:insensitive="true">
     <g
        transform="translate(320.52381,-58.964286)"
        id="g1633">
@@ -1936,7 +1956,8 @@
      inkscape:groupmode="layer"
      id="layer1"
      style="display:inline"
-     transform="translate(-9.0714283,-41.86607)">
+     transform="translate(-9.0714283,-41.86607)"
+     sodipodi:insensitive="true">
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.66499996;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect815"
@@ -2468,7 +2489,8 @@
      id="layer3"
      inkscape:label="parameters_panel"
      transform="translate(1.7010498e-6)"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <g
        transform="matrix(0.55445048,0,0,0.55445048,423.14135,100.08008)"
        id="g1921">
@@ -4027,7 +4049,7 @@
        height="8.5526247"
        width="25.52424"
        id="rect1960"
-       style="fill:#000000;fill-opacity:0.28627452;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:#000000;fill-opacity:0.28627451;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <text
        id="text1964"
        y="7.8521042"
@@ -4052,7 +4074,8 @@
      id="layer2"
      inkscape:label="System"
      style="display:inline"
-     transform="translate(-9.0714283,-41.86607)">
+     transform="translate(-9.0714283,-41.86607)"
+     sodipodi:insensitive="true">
     <ellipse
        style="fill:none;fill-opacity:1;stroke:#00ff09;stroke-width:0.36500001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path1037"
