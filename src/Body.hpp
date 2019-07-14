@@ -53,26 +53,27 @@ class Body {
         epch(state->getEpoch()), stateVectors(state)
     {}
 
-    std::string getName();
-    double getMass();
-    double getRadius();
+    std::string getName() const;
+    double getMass() const;
+    double getRadius() const;
 
-    bool isKeplerian();
+    bool isKeplerian() const;
 
-    double getSMA();
-    double getECC();
-    double getINC();
-    double getLAN();
-    double getAPE();
-    double getTAE();
-    double getEpoch();
-    Body* getCenter();
+    double getSMA() const;
+    double getECC() const;
+    double getINC() const;
+    double getLAN() const;
+    double getAPE() const;
+    double getTAE() const;
+    double getEpoch() const;
+    Body* getCenter() const;
 
-    State* getInitialState();
+    State* getInitialState() const;
 
-    std::string to_string();
+    std::string to_string() const;
 };
 
 bool operator==(const Body& Body1, const Body& Body2);
+bool operator!=(const Body& Body1, const Body& Body2);
 
 #endif
