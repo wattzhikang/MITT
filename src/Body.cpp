@@ -109,3 +109,35 @@ bool operator==(const Body& Body1, const Body& Body2) {
 bool operator!=(const Body& Body1, const Body& Body2) {
 	return !(Body1 == Body2);
 }
+
+bool operator<(const Body& Body1, const Body& Body2) {
+	if (Body1.getName() < Body2.getName()) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool operator<=(const Body& Body1, const Body& Body2) {
+	if (Body1.getName() <= Body2.getName()) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool operator>(const Body& Body1, const Body& Body2) {
+	if (Body1.getName() > Body2.getName()) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool operator>=(const Body& Body1, const Body& Body2) {
+	if (Body1.getName() >= Body2.getName()) {
+		return true;
+	} else {
+		return false;
+	}
+}

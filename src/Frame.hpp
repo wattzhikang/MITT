@@ -11,21 +11,27 @@ This represents a snapshot of a gravitational system at an instant in time
 #include <map>
 
 #include "Body.hpp"
-#include "Position.hpp"
+#include "State.hpp"
 
 class Frame {
     private:
         double epoch;
 
         std::map<Body, State> frame;
+        std::map<Body, bool> enginesOn;
     public:
-        Frame(double c_epoch) : epoch(c_epoch) {}
+        Frame(double c_epoch, std::map<Body, State> frame,
+            std::map<Body, bool> enginesOn)
+        : epoch(c_epoch),
+            frame(frame),
+            enginesOn(enginesOn)
+        {}
 
-        State getPosition(Body& planet);
+        State getPosition(const Body& planet);
 
-        bool engineOn(Body);
+        bool engineOn(const Body& planet);
 
-        double getEpoch();
+        double getEpoch() const;
 
         bool operator==(const Frame& right);
         bool operator!=(const Frame& right);

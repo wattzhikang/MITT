@@ -76,4 +76,9 @@ class Body {
 bool operator==(const Body& Body1, const Body& Body2);
 bool operator!=(const Body& Body1, const Body& Body2);
 
+bool operator<(const Body& Body1, const Body& Body2);
+bool operator<=(const Body& Body1, const Body& Body2);
+bool operator>(const Body& Body1, const Body& Body2);
+bool operator>=(const Body& Body1, const Body& Body2);
+
 #endif
