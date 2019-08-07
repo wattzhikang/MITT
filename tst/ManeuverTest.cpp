@@ -28,11 +28,25 @@
 
 namespace {
     TEST(ManeuverTest, OperatorTests) {
-        Maneuver m1(0, 3, 0.5, NULL);
-        Maneuver m2(2, 4, 0.5, NULL);
-        Maneuver m3(2, 7, 0.5, NULL);
-        Maneuver m4(7, 9, 0.2, NULL);
-        Maneuver m5(5, 8, 0.1, NULL);
+        Body body(
+            "name", //name
+            50000,   //mass
+            50,     //radius
+            500,   //semi-major axis
+            0.1,    //eccentricity
+            0.559,  //inclination
+            0.235,    //longitude of ascending node
+            0.718,    //argument of periapsis
+            0.433,    //true anomaly at epoch
+            3201.23,    //epoch
+            NULL    //central body
+        );
+
+        Maneuver m1(0, 3, 0.5, body);
+        Maneuver m2(2, 4, 0.5, body);
+        Maneuver m3(2, 7, 0.5, body);
+        Maneuver m4(7, 9, 0.2, body);
+        Maneuver m5(5, 8, 0.1, body);
 
         //implementation of above truth table
         ASSERT_TRUE(m1 < m2);

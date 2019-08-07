@@ -27,18 +27,24 @@ class Frame {
             enginesOn(enginesOn)
         {}
 
+        Frame(double c_epoch)
+        : epoch(c_epoch)
+        {}
+
         State getPosition(const Body& planet);
+        std::map<Body, State> getPositions();
 
         bool engineOn(const Body& planet);
+        std::map<Body, bool> getAllEngineStatus();
 
         double getEpoch() const;
 
-        bool operator==(const Frame& right);
-        bool operator!=(const Frame& right);
-        bool operator>(const Frame& right);
-        bool operator>=(const Frame& right);
-        bool operator<(const Frame& right);
-        bool operator<=(const Frame& right);
+        friend bool operator==(const Frame& left, const Frame& right);
+        friend bool operator!=(const Frame& left, const Frame& right);
+        friend bool operator>(const Frame& left, const Frame& right);
+        friend bool operator>=(const Frame& left, const Frame& right);
+        friend bool operator<(const Frame& left, const Frame& right);
+        friend bool operator<=(const Frame& left, const Frame& right);
 };
 
 #endif

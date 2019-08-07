@@ -21,40 +21,40 @@ bool Maneuver::overlaps(const Maneuver& right) {
     }
 }
 
-bool Maneuver::operator== (const Maneuver& right) {
-    return startEpoch == right.startEpoch;
+bool operator== (const Maneuver& left, const Maneuver& right) {
+    return left.startEpoch == right.startEpoch;
 }
 
-bool Maneuver::operator!= (const Maneuver& right) {
-    return !(*this==right);
+bool operator!= (const Maneuver& left, const Maneuver& right) {
+    return !(left == right);
 }
 
-bool Maneuver::operator< (const Maneuver& right) {
-    if (startEpoch < right.startEpoch) {
+bool operator< (const Maneuver& left, const Maneuver& right) {
+    if (left.startEpoch < right.startEpoch) {
         return true;
     } else {
         return false;
     }
 }
 
-bool Maneuver::operator<= (const Maneuver& right) {
-    if (startEpoch <= right.startEpoch) {
+bool operator<= (const Maneuver& left, const Maneuver& right) {
+    if (left.startEpoch <= right.startEpoch) {
         return true;
     } else {
         return false;
     }
 }
 
-bool Maneuver::operator> (const Maneuver& right) {
-    if (startEpoch > right.startEpoch) {
+bool operator> (const Maneuver& left, const Maneuver& right) {
+    if (left.startEpoch > right.startEpoch) {
         return true;
     } else {
         return false;
     }
 }
 
-bool Maneuver::operator>= (const Maneuver& right) {
-    if (startEpoch >= right.startEpoch) {
+bool operator>= (const Maneuver& left, const Maneuver& right) {
+    if (left.startEpoch >= right.startEpoch) {
         return true;
     } else {
         return false;

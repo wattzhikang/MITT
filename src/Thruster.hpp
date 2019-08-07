@@ -20,6 +20,22 @@ class Thruster {
         double getSpecificImpulse() {return specificImpulse;}
         double getMassRatio() {return massRatio;}
         double getMassThrust() {return maxThrust;}
+
+        bool operator==(const Thruster& rhs) const {
+            if (specificImpulse == rhs.specificImpulse &&
+                massRatio == rhs.massRatio &&
+                maxThrust == rhs.maxThrust
+            ) {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        bool operator!=(const Thruster& rhs) const {
+            return !(*this == rhs);
+        }
 };
 
 #endif

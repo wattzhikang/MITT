@@ -9,6 +9,10 @@ State Frame::getPosition(const Body& planet) {
     }
 }
 
+std::map<Body,State> Frame::getPositions() {
+    return frame;
+}
+
 bool Frame::engineOn(const Body& planet) {
     std::map<Body, bool>::iterator itr = enginesOn.find(planet);
     if (itr != enginesOn.end()) {
@@ -18,25 +22,29 @@ bool Frame::engineOn(const Body& planet) {
     }
 }
 
+std::map<Body,bool> Frame::getAllEngineStatus() {
+    return enginesOn;
+}
+
 double Frame::getEpoch() const {
     return epoch;
 }
 
-bool Frame::operator==(const Frame& right) {
-    return (epoch == right.epoch) ? true : false;
+bool operator==(const Frame& left, const Frame& right) {
+    return (left.epoch == right.epoch) ? true : false;
 }
-bool Frame::operator!=(const Frame& right) {
-    return !(*this == right);
+bool operator!=(const Frame& left, const Frame& right) {
+    return !(left.epoch == right);
 }
-bool Frame::operator>(const Frame& right) {
-    return (epoch > right.epoch) ? true : false;
+bool operator>(const Frame& left, const Frame& right) {
+    return (left.epoch > right.epoch) ? true : false;
 }
-bool Frame::operator>=(const Frame& right) {
-    return (epoch >= right.epoch) ? true : false;
+bool operator>=(const Frame& left, const Frame& right) {
+    return (left.epoch >= right.epoch) ? true : false;
 }
-bool Frame::operator<(const Frame& right) {
-    return (epoch < right.epoch) ? true : false;
+bool operator<(const Frame& left, const Frame& right) {
+    return (left.epoch < right.epoch) ? true : false;
 }
-bool Frame::operator<=(const Frame& right) {
-    return (epoch <= right.epoch) ? true : false;
+bool operator<=(const Frame& left, const Frame& right) {
+    return (left.epoch <= right.epoch) ? true : false;
 }

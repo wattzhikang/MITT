@@ -7,7 +7,7 @@ class Maneuver {
     private:
         double startEpoch, endEpoch;
         double thrust;
-        Body* body;
+        Body body;
 
         bool overlapEarlierLatter(const Maneuver& earlier,
                                   const Maneuver& latter);
@@ -16,7 +16,7 @@ class Maneuver {
             double startEpoch,
             double endEpoch,
             double thrust,
-            Body* body
+            Body body
         ): startEpoch(startEpoch),
             endEpoch(endEpoch),
             thrust(thrust),
@@ -26,7 +26,7 @@ class Maneuver {
         double getStart() {return startEpoch;}
         double getEnd() {return endEpoch;}
         double getThrust() {return thrust;}
-        Body* getBody() {return body;}
+        Body getBody() {return body;}
 
         /*
          * Note: all the following methods only compare
@@ -35,12 +35,12 @@ class Maneuver {
 
         bool overlaps (const Maneuver& right);
 
-        bool operator==(const Maneuver& right);
-        bool operator!=(const Maneuver& right);
-        bool operator<(const Maneuver& right);
-        bool operator<=(const Maneuver& right);
-        bool operator>(const Maneuver& right);
-        bool operator>=(const Maneuver& right);
+        friend bool operator==(const Maneuver& left, const Maneuver& right);
+        friend bool operator!=(const Maneuver& left, const Maneuver& right);
+        friend bool operator<(const Maneuver& left, const Maneuver& right);
+        friend bool operator<=(const Maneuver& left, const Maneuver& right);
+        friend bool operator>(const Maneuver& left, const Maneuver& right);
+        friend bool operator>=(const Maneuver& left, const Maneuver& right);
 };
 
 #endif

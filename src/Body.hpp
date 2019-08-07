@@ -26,7 +26,7 @@ class Body {
     Body* center;
 
     //initial vector elements
-    State* stateVectors;
+    State stateVectors;
 
   public:
     Body(std::string c_name,
@@ -48,9 +48,9 @@ class Body {
     Body(std::string c_name,
            double mass,
            double radius,
-           State* state)
+           State state)
       : name(c_name), mass(mass), radius(radius), keplerian(false),
-        epch(state->getEpoch()), stateVectors(state)
+        epch(state.getEpoch()), stateVectors(state)
     {}
 
     std::string getName() const;
@@ -68,7 +68,7 @@ class Body {
     double getEpoch() const;
     Body* getCenter() const;
 
-    State* getInitialState() const;
+    State getInitialState() const;
 
     std::string to_string() const;
 };

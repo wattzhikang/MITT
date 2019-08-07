@@ -34,6 +34,24 @@ namespace {
         ASSERT_EQ(body.getTAE(), 0.433);
         ASSERT_EQ(body.getEpoch(), 3201.23);
         ASSERT_TRUE(body.getCenter() == NULL);
+
+        Body body2(
+            "name2",
+            2342,
+            324,
+            909234,
+            2392,
+            23,
+            23,
+            68,
+            123,
+            9,
+            NULL
+        );
+
+        ASSERT_TRUE(body < body2);
+        ASSERT_TRUE(body <= body);
+        ASSERT_FALSE(body2 < body);
     }
 
     TEST(BodyTest, VectorTest) {
@@ -51,13 +69,13 @@ namespace {
             "name",
             50000,
             50,
-            &vectors
+            vectors
         );
 
         ASSERT_STREQ(body.getName().c_str(), "name");
         ASSERT_EQ(body.getMass(), 50000);
         ASSERT_EQ(body.getRadius(), 50);
         ASSERT_FALSE(body.isKeplerian());
-        ASSERT_TRUE(body.getInitialState() == &vectors);
+        ASSERT_TRUE(body.getInitialState() == vectors);
     }
 }

@@ -14,7 +14,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include
 
 # This is the most important variable. It is a list of all the
 # compilation units except header-only sources (see next item)
-ITMS := Body Maneuver System Frame
+ITMS := Body Maneuver System Frame Timeline TimelineMomentum
 
 # Header-only sources go here. They still need to be tested,
 # but not compiled standalone.

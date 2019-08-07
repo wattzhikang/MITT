@@ -7,6 +7,16 @@ class State {
         double x_vel, y_vel, z_vel;
         double epoch;
     public:
+        State()
+            : x_pos(0),
+            y_pos(0),
+            z_pos(0),
+            x_vel(0),
+            y_vel(0),
+            z_vel(0),
+            epoch(0)
+        {};
+
         State(
             double x_pos,
             double y_pos,
@@ -27,13 +37,13 @@ class State {
 
         //default assignment operator and copy constructors are ok
 
-        double getXPosition() {return x_pos;}
-        double getYPosition() {return y_pos;}
-        double getZPosition() {return z_pos;}
+        double getXPosition() const {return x_pos;}
+        double getYPosition() const {return y_pos;}
+        double getZPosition() const {return z_pos;}
         
-        double getXVelocity() {return x_vel;}
-        double getYVelocity() {return y_vel;}
-        double getZVelocity() {return z_vel;}
+        double getXVelocity() const {return x_vel;}
+        double getYVelocity() const {return y_vel;}
+        double getZVelocity() const {return z_vel;}
 
         double getEpoch() {return epoch;}
 

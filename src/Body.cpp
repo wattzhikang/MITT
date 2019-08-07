@@ -48,7 +48,7 @@ Body* Body::getCenter() const {
 	return center;
 }
 
-State* Body::getInitialState() const {
+State Body::getInitialState() const {
 	return stateVectors;
 }
 
@@ -81,17 +81,17 @@ std::string Body::to_string() const {
 			+ std::string("radius: ")
 			+ std::to_string(radius) + std::string("\n")
 			+ std::string("X Position")
-			+ std::to_string(stateVectors->getXPosition()) + std::string("\n")
+			+ std::to_string(stateVectors.getXPosition()) + std::string("\n")
 			+ std::string("Y Position")
-			+ std::to_string(stateVectors->getYPosition()) + std::string("\n")
+			+ std::to_string(stateVectors.getYPosition()) + std::string("\n")
 			+ std::string("Z Position")
-			+ std::to_string(stateVectors->getZPosition()) + std::string("\n")
+			+ std::to_string(stateVectors.getZPosition()) + std::string("\n")
 			+ std::string("X Velocity")
-			+ std::to_string(stateVectors->getXVelocity()) + std::string("\n")
+			+ std::to_string(stateVectors.getXVelocity()) + std::string("\n")
 			+ std::string("Y Velocity")
-			+ std::to_string(stateVectors->getYVelocity()) + std::string("\n")
+			+ std::to_string(stateVectors.getYVelocity()) + std::string("\n")
 			+ std::string("Z Velocity")
-			+ std::to_string(stateVectors->getZVelocity()) + std::string("\n")
+			+ std::to_string(stateVectors.getZVelocity()) + std::string("\n")
 			+ std::string("epoch: ")
 			+ std::to_string(Body::epch) + std::string("\n")
 		;
