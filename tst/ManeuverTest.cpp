@@ -42,11 +42,11 @@ namespace {
             NULL    //central body
         );
 
-        Maneuver m1(0, 3, 0.5, body);
-        Maneuver m2(2, 4, 0.5, body);
-        Maneuver m3(2, 7, 0.5, body);
-        Maneuver m4(7, 9, 0.2, body);
-        Maneuver m5(5, 8, 0.1, body);
+        Maneuver m1(0, 3, 0, 0, 0.5, body);
+        Maneuver m2(2, 4, 0, 0, 0.5, body);
+        Maneuver m3(2, 7, 0, 0, 0.5, body);
+        Maneuver m4(7, 9, 0, 0, 0.2, body);
+        Maneuver m5(5, 8, 0, 0, 0.1, body);
 
         //implementation of above truth table
         ASSERT_TRUE(m1 < m2);

@@ -6,7 +6,11 @@
 class Maneuver {
     private:
         double startEpoch, endEpoch;
+
+        double progradeRetrograde, normalAntinormal; //these are angles in radians
+
         double thrust;
+
         Body body;
 
         bool overlapEarlierLatter(const Maneuver& earlier,
@@ -15,10 +19,14 @@ class Maneuver {
         Maneuver(
             double startEpoch,
             double endEpoch,
+            double progradeRetrograde,
+            double normalAntinormal,
             double thrust,
             Body body
         ): startEpoch(startEpoch),
             endEpoch(endEpoch),
+            progradeRetrograde(progradeRetrograde),
+            normalAntinormal(normalAntinormal),
             thrust(thrust),
             body(body)
         {}
@@ -26,6 +34,8 @@ class Maneuver {
         double getStart() {return startEpoch;}
         double getEnd() {return endEpoch;}
         double getThrust() {return thrust;}
+        double getProgradeAngle() {return progradeRetrograde;}
+        double getNormalAngle() {return normalAntinormal;}
         Body getBody() {return body;}
 
         /*

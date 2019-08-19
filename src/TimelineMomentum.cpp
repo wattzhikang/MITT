@@ -1,5 +1,7 @@
 #include "TimelineMomentum.hpp"
 
+#include <cmath>
+
 State TimelineMomentum::initialState(Body body) {
     //TODO: need reference for this transformation
 }
@@ -24,6 +26,10 @@ TimelineMomentum::TimelineMomentum(System system) {
     Frame firstFrame(0, frameStates, frameEngine);
 
     frames.insert(firstFrame);
+}
+
+TimelineMomentum::~TimelineMomentum() {
+    return;
 }
 
 void TimelineMomentum::addEvent(Maneuver maneuver) {
@@ -52,8 +58,103 @@ std::vector<Maneuver> TimelineMomentum::getMission() {
     return vMission;
 }
 
+std::vector<Maneuver> TimelineMomentum::getTimeline(Body body) {
+    std::vector<Maneuver> timeline;
+    for (Maneuver maneuver : mission) {
+        if (maneuver.getBody() == body) {
+            timeline.push_back(maneuver);
+        }
+    }
+    //we don't need to sort it because STL sets store in order per specification
+    //TODO: we do need to make sure that the missions don't overlap
+    return timeline;
+}
+
+State TimelineMomentum::cruiseState(State afterInterval, double timeElapsed, double intervalEnd) {
+    double x_pos =
+        afterInterval.getXPosition() +
+        afterInterval.getXVelocity() * timeElapsed;
+    double y_pos =
+        afterInterval.getYPosition() +
+        afterInterval.getYVelocity() * timeElapsed;
+    double z_pos =
+        afterInterval.getZPosition() +
+        afterInterval.getZVelocity() * timeElapsed;
+    return State(
+        x_pos, y_pos, z_pos,
+        afterInterval.getXVelocity(),
+        afterInterval.getYVelocity(),
+        afterInterval.getZVelocity(),
+        intervalEnd
+    );
+}
+
+State accelState(State afterInterval, Maneuver maneuver, double timeElapsed, double intervalEnd) {
+    double xAccel =
+        maneuver.getThrust() *
+        sin(maneuver.getProgradeAngle()) *
+        cos(maneuver.getNormalAngle());
+    double yAccel =
+        maneuver.getThrust() *
+        sin(maneuver.getProgradeAngle()) *
+        sin(maneuver.getNormalAngle());
+    double zAccel =
+        maneuver.getThrust() *
+        cos(maneuver.getNormalAngle());
+
+    double x_pos =
+        afterInterval.getXPosition() +
+        afterInterval.getXVelocity() * timeElapsed +
+        (pow(timeElapsed, 2) * xAccel);
+    double y_pos =
+        afterInterval.getYPosition() +
+        afterInterval.getYVelocity() * timeElapsed +
+        (pow(timeElapsed, 2) * yAccel);
+    double z_pos =
+        afterInterval.getZPosition() +
+        afterInterval.getZVelocity() * timeElapsed +
+        (pow(timeElapsed, 2) * zAccel);
+    return State(
+        x_pos, y_pos, z_pos,
+        afterInterval.getXVelocity(),
+        afterInterval.getYVelocity(),
+        afterInterval.getZVelocity(),
+        intervalEnd
+    );
+}
+
+State TimelineMomentum::deriveState(std::vector<Maneuver> timeline, Body body, State initialState, double endEpoch) {
+    //invariant #1: afterInterval refers to the state after the last interval
+    State afterInterval = initialState;
+    //invariant #2: intervalEnd will refer to the ending point of the previous interval
+    //intervalStart is not guaranteed to be of any relevance
+    double intervalStart, intervalEnd = initialState.getEpoch();
+    double timeElapsed;
+
+    //maneuvers don't overlap as per getTimeline's specification
+    for (Maneuver maneuver : timeline) {
+        //compute cruise phase
+        intervalStart = intervalEnd;
+        intervalEnd = maneuver.getStart();
+        timeElapsed = intervalEnd - intervalStart;
+        afterInterval = cruiseState(afterInterval, timeElapsed, intervalEnd);
+
+        //compute accel phase
+        intervalStart = intervalEnd;
+        intervalEnd = maneuver.getEnd();
+        timeElapsed = intervalEnd - intervalStart;
+        afterInterval = accelState(afterInterval, maneuver, timeElapsed, intervalEnd);
+    }
+
+    //compute final cruise phase
+    intervalStart = intervalEnd;
+    intervalEnd = endEpoch;
+    timeElapsed = intervalEnd - intervalStart;
+    afterInterval = cruiseState(afterInterval, timeElapsed, intervalEnd);
+}
+
 //this is the business method
-Frame Timeline::computeFrame(double epoch, double precision) {
+Frame TimelineMomentum::computeFrame(double epoch, double precision) {
     //get the previous frame
     Frame previous = *(frames.lower_bound(epoch));
 
@@ -63,24 +164,14 @@ Frame Timeline::computeFrame(double epoch, double precision) {
 
     std::map<Body, State> previousStates = previous.getPositions();
     double timeElapsed = epoch - previous.getEpoch();
+
     for (std::pair<Body,State> pair : previousStates) {
         Body prevBody = pair.first;
         State prevState = pair.second;
-        //compute the next state based on epoch difference
-        double x_pos =
-            prevState.getXPosition() + prevState.getXVelocity() * timeElapsed;
-        double y_pos =
-            prevState.getYPosition() + prevState.getYVelocity() * timeElapsed;
-        double z_pos =
-            prevState.getZPosition() + prevState.getZVelocity() * timeElapsed;
-        
-        State nextState(
-            x_pos, y_pos, z_pos,
-            prevState.getXVelocity(),
-            prevState.getYVelocity(),
-            prevState.getZVelocity(),
-            epoch
-        );
+
+        std::vector<Maneuver> bodyTimeline = getTimeline(prevBody);
+
+        State nextState = deriveState(bodyTimeline, prevBody, prevState, epoch);
 
         frameStates.insert(std::pair<Body,State>(prevBody, nextState));
 

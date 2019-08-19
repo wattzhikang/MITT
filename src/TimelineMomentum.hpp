@@ -6,8 +6,16 @@
 class TimelineMomentum: public Timeline {
     private:
         State initialState(Body);
+
+        std::vector<Maneuver> getTimeline(Body);
+        State deriveState(std::vector<Maneuver>, Body, State initialState, double endEpoch);
+        bool engineOn(std::vector<Maneuver>, Body, State initialState, double endEpoch);
+        State cruiseState(State afterInterval, double timeElapsed, double intervalEnd);
+    protected:
+        Frame computeFrame(double epoch, double precision);
     public:
         TimelineMomentum(System system);
+        ~TimelineMomentum();
 
         void addEvent(Maneuver);
         void removeEvent(Maneuver);

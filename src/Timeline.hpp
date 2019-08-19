@@ -23,6 +23,9 @@ class Timeline {
         Frame nearestFrame(double epoch, double precision);
         virtual Frame computeFrame(double epoch, double precision) = 0;
     public:
+        Timeline(){};
+        ~Timeline(){};
+        
         virtual void addEvent(Maneuver) = 0;
         virtual void removeEvent(Maneuver) = 0;
 
